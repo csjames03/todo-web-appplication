@@ -10,7 +10,7 @@ import Todo from './component/Todo';
 
 export default async function Home() {
   const user = await currentUser()
-  const emailId = user?.primaryEmailAddressId
+  const emailId = user?.primaryEmailAddressId || ''; 
   const { todos } = await getTodos(emailId)
   if(!user) return <SignIn  />
   console.log(user?.primaryEmailAddressId)
