@@ -1,13 +1,15 @@
 'use client'
 import React from 'react'
 import { useState } from 'react';
-type Props = Todo
+type Props = {
+    props: Todo;
+}
 
 function Todo({ props }: Props) {
     const [iscom, setIsCom] = useState(false);
 
     function handleChange(){
-        console.log('asdas')
+        console.log('asdad')
     }
   return (
     <div className='py-2 w-screen lg:w-3/6 px-20 flex justify-center items-center'>
