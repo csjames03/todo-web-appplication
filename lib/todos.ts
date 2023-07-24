@@ -2,7 +2,11 @@ import prisma from "./prisma";
 
 export async function getTodos(emailId: string){
     try{
-        const todos = await prisma.todo.findMany()
+        const todos = await prisma.todo.findMany({
+            where: {
+                email: emailId
+            }
+        })
         return {todos}
     }catch(error){
         return {error}
