@@ -7,6 +7,7 @@ export async function getTodos(emailId: string){
                 email: emailId
             }
         })
+<<<<<<< HEAD
         return {todos}
     }catch(error){
         return {error}
@@ -23,6 +24,8 @@ export async function modifyIsComplete(id:string, isCompleted: boolean){
               isCompleted: isCompleted,
             },
           })
+=======
+>>>>>>> f262c42c244bdf0ba6cbf0ce51f9c07df5229037
         return {todos}
     }catch(error){
         return {error}
@@ -40,6 +43,7 @@ export async function createTodo(title: string, emailId: string){
         return {error}
     }
 }
+<<<<<<< HEAD
 
 export async function deleteTodo(id:string){
     try{
@@ -53,3 +57,5 @@ export async function deleteTodo(id:string){
         return {error}
     }
 }
+=======
+>>>>>>> f262c42c244bdf0ba6cbf0ce51f9c07df5229037
