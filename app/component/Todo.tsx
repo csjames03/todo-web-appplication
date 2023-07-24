@@ -1,6 +1,7 @@
 'use client'
 import React from 'react'
 import { useState } from 'react';
+import { modifyIsCompleteAction, deleteTodoAction } from '../_actions';
 type Props = {
     props: Todo;
 }
@@ -8,8 +9,16 @@ type Props = {
 function Todo({ props }: Props) {
     const [iscom, setIsCom] = useState(false);
 
-    function handleChange(){
-        console.log('asdad')
+    async function handleChange(e:React.ChangeEvent<HTMLInputElement>) {
+        if(props.isCompleted){
+            modifyIsCompleteAction(props.id.toString(), false)
+        }else{
+            modifyIsCompleteAction(props.id.toString(), true)
+        }
+    }
+
+    async function handleDelete(){
+        deleteTodoAction(props.id.toString())
     }
   return (
     <div className='py-2 w-screen lg:w-3/6 px-20 flex justify-center items-center'>
@@ -18,7 +27,7 @@ function Todo({ props }: Props) {
            </div>
            <div className='w-1/3   px-10 grid grid-cols-2 min-w-1/3'>
               <input onChange={handleChange} type="checkbox" name="" id="" defaultChecked={props.isCompleted} />
-              <div className='text-xs  min-w-min cursor-pointer col-span-1 p-2 border border-red-500 text-red-500 flex justify-center items-center'>
+              <div onClick={handleDelete} className='text-xs  min-w-min cursor-pointer col-span-1 p-2 border border-red-500 text-red-500 flex justify-center items-center'>
                   Remove
               </div>
            </div>
