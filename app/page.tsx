@@ -15,7 +15,7 @@ export default async function Home() {
   if(!user) return <SignIn  />
   console.log(user?.primaryEmailAddressId)
   return (
-    <main className="flex min-h-screen flex-col items-center">
+    <main className="flex min-h-screen flex-col bg-black items-center">
       <Navbar />
       <TodoForm />
       {
